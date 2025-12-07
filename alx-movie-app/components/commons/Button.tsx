@@ -1,10 +1,10 @@
-const Button: React.FC<Button> = ({ imageUrl, prompt, width, action }) => {
+import { ButtonProps } from "@/interfaces";
+
+const Button: React.FC<ButtonProps> = ({ title, action }) => {
   return (
-    <div onClick={() => action(imageUrl)} className="mt-6 border hover:cursor-pointer">
-      <img src={imageUrl} alt={prompt} className={`w-full max-w-md rounded-lg shadow-lg`} />
-      <h2 className={`${width ? 'text-sm' : 'text-xl'} font-semibold mt-2`}>Your Prompt:</h2>
-      <p className={`${width ? 'text-xs' : 'text-lg'} text-gray-700 mb-4`}>{prompt}</p>
-    </div>
+    <button onClick={action} className="px-8 py-2 border-2 border-[#E2D609] rounded-full hover:bg-[#E2D609] hover:text-black transition-colors duration-300">
+      {title}
+    </button>
   )
 }
 

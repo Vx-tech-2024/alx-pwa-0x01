@@ -1,10 +1,14 @@
-const Layout: React.FC<Layout> = ({ imageUrl, prompt, width, action }) => {
+import { ComponentProps } from "@/interfaces";
+import Header from "./Header";
+import Footer from "./Footer";
+
+const Layout: React.FC<ComponentProps> = ({ children }) => {
   return (
-    <div onClick={() => action(imageUrl)} className="mt-6 border hover:cursor-pointer">
-      <img src={imageUrl} alt={prompt} className={`w-full max-w-md rounded-lg shadow-lg`} />
-      <h2 className={`${width ? 'text-sm' : 'text-xl'} font-semibold mt-2`}>Your Prompt:</h2>
-      <p className={`${width ? 'text-xs' : 'text-lg'} text-gray-700 mb-4`}>{prompt}</p>
-    </div>
+    <>
+      <Header />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+    </>
   )
 }
 
